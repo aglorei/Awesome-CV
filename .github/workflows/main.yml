@@ -20,5 +20,5 @@ jobs:
     - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
-        name: documents
+        name: aglorei
         path: aglorei/*.pdf
