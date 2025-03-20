@@ -12,13 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: texlive/texlive:latest
+    strategy:
+      matrix:
+        document:
+          - resume
+        user:
+          - aglorei
     steps:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Compile PDFs
-      run: make
+      env:
+        USER_DIR: ${{ matrix.user }}
+      run: make ${{ matrix.document }}
     - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
-        name: aglorei
-        path: aglorei/*.pdf
+        name: ${{ matrix.user }}-${{ matrix.document }}
+        path: ${{ matrix.user }}/${{ matrix.document }}.pdf
