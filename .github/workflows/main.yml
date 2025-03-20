@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
+    container:
+      image: texlive/texlive:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -19,5 +20,5 @@ jobs:
     - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
-        name: aglorei
+        name: documents
         path: aglorei/*.pdf
