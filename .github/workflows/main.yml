@@ -1,22 +1,32 @@
+---
 name: Compile PDFs
 
 on:
-  push: {}
-  pull_request: {}
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
-
+    container:
+      image: texlive/texlive:latest
+    strategy:
+      matrix:
+        document:
+          - resume
+        user:
+          - aglorei
     steps:
-    - name: Checkout repo
+    - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Compile
-      run: make
-
-    - uses: actions/upload-artifact@v4
+    - name: Compile PDFs
+      env:
+        USER_DIR: ${{ matrix.user }}
+      run: make ${{ matrix.document }}.pdf
+    - name: Upload PDFs
+      uses: actions/upload-artifact@v4
       with:
-        name: examples
-        path: examples/*.pdf
+        name: ${{ matrix.user }}-${{ matrix.document }}
+        path: ${{ matrix.user }}/${{ matrix.document }}.pdf
