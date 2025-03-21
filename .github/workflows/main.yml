@@ -24,7 +24,7 @@ jobs:
     - name: Compile PDFs
       env:
         USER_DIR: ${{ matrix.user }}
-      run: make ${{ matrix.document }}
+      run: make ${{ matrix.document }}.pdf
     - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
