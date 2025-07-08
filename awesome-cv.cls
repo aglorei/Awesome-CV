@@ -161,11 +161,11 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\footerfont}{\sourcesanspro}
-\newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
+\newcommand*{\headerfont}{\roboto\addfontfeature{LetterSpace=3.5}}
+\newcommand*{\headerfontlight}{\robotolight\addfontfeature{LetterSpace=3.5}}
+\newcommand*{\footerfont}{\sourcesanspro\addfontfeature{LetterSpace=3.5}}
+\newcommand*{\bodyfont}{\sourcesanspro\addfontfeature{LetterSpace=3.5}}
+\newcommand*{\bodyfontlight}{\sourcesansprolight\addfontfeature{LetterSpace=3.5}}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
