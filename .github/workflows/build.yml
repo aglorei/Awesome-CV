@@ -26,16 +26,13 @@ jobs:
           - aglorei
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Compile PDFs
-        env:
+      - env:
           USER_DIR: ${{ matrix.user }}
         run: make ${{ matrix.document }}.pdf
 
-      - name: Upload PDFs
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.user }}-${{ matrix.document }}
           path: ${{ matrix.user }}/${{ matrix.document }}.pdf
