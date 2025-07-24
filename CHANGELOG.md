@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/aglorei/Awesome-CV/compare/v1.0.1...v1.1.0) (2025-07-24)
+
+
+### Features
+
+* Compile resume.docx with pandoc ([#10](https://github.com/aglorei/Awesome-CV/issues/10)) ([3a482b0](https://github.com/aglorei/Awesome-CV/commit/3a482b0c1d22428fa751f821c1c275470e6bf057))
+
 ## [1.0.1](https://github.com/aglorei/Awesome-CV/compare/v1.0.0...v1.0.1) (2025-07-24)
 
 
