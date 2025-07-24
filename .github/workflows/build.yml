@@ -1,0 +1,48 @@
+---
+name: build
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: 0 6 * * 3
+
+jobs:
+  compile:
+    container:
+      image: texlive/texlive:latest
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        document:
+          - resume
+        user:
+          - aglorei
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - env:
+          USER_DIR: ${{ matrix.user }}
+        run: make ${{ matrix.document }}.pdf
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.user }}-${{ matrix.document }}
+          path: ${{ matrix.user }}/${{ matrix.document }}.pdf
+
+  yamllint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: pip install --user yamllint
+
+      - run: yamllint --format github --strict .
