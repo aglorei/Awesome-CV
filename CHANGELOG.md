@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/aglorei/Awesome-CV/compare/v1.0.0...v1.0.1) (2025-07-24)
+
+
+### Bug Fixes
+
+* Execution actions/checkout before uploading artifacts ([#7](https://github.com/aglorei/Awesome-CV/issues/7)) ([55555ae](https://github.com/aglorei/Awesome-CV/commit/55555ae14db5daa77dd6cb4896ed16cc0666f595))
+
 ## 1.0.0 (2025-07-24)
 
 
