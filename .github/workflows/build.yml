@@ -12,7 +12,32 @@ on:
     - cron: 0 6 * * 3
 
 jobs:
-  compile:
+  compile-docx:
+    container:
+      image: pandoc/minimal:latest-ubuntu
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        document:
+          - resume
+        user:
+          - aglorei
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: |
+          pandoc ${{ matrix.document }}.tex \
+            --output ${{ matrix.document }}.docx
+        working-directory: ${{ matrix.user }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.user }}-${{ matrix.document }}-docx
+          path: ${{ matrix.user }}/${{ matrix.document }}.docx
+
+  compile-pdf:
     container:
       image: texlive/texlive:latest
 
@@ -34,7 +59,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.user }}-${{ matrix.document }}
+          name: ${{ matrix.user }}-${{ matrix.document }}-pdf
           path: ${{ matrix.user }}/${{ matrix.document }}.pdf
 
   yamllint:
