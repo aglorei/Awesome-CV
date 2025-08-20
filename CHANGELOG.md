@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/aglorei/Awesome-CV/compare/v1.2.0...v1.3.0) (2025-08-20)
+
+
+### Features
+
+* Quantify uptime in SRE experience ([#14](https://github.com/aglorei/Awesome-CV/issues/14)) ([bca7e8e](https://github.com/aglorei/Awesome-CV/commit/bca7e8e658b4cbe01762836043fb0aedcb4cdc57))
+
+
+### Bug Fixes
+
+* Address inconsistent hyphenation in compound terms ([bca7e8e](https://github.com/aglorei/Awesome-CV/commit/bca7e8e658b4cbe01762836043fb0aedcb4cdc57))
+
 ## [1.2.0](https://github.com/aglorei/Awesome-CV/compare/v1.1.0...v1.2.0) (2025-07-31)
 
 
